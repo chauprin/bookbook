@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>profile</title>
+
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+<br>
+<div class="container">
+<span style="float: right">
+<a href="{{url_for('logout')}}" class="btn btn-primary" >Logout</a>
+
+<a href="{{url_for('admin_home_page')}}" class="btn btn-primary" >Home</a>
+</span>
+
+
+
+<h2>All Bookings </h2>
+<hr>
+<ul>
+{% for booking in bookings %}
+<li>Booking id :{{booking[0]}},<br>
+	Branch id : {{booking[1]}},<br>
+	userid : {{booking[2]}},<br>
+	Number of passengers : {{booking[3]}},<br>
+	Departure date : {{booking[4]}},<br>
+	Return date : {{booking[5]}}<br>
+	Vehicle : {{booking[6]}}<br>
+	<br>
+</li>
+{% endfor %}
+</ul>
+</div>
+</body>
+</html>2

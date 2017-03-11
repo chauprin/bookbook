@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+<head>
+<title>Admin add branch</title>
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<style>
+.form-group{
+    margin-bottom: 10px;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+<h2><center>Add Branch</center></h2>
+
+{%if(get_flashed_messages())%}
+{% for message in get_flashed_messages() %}
+	<div class="alert alert-info fade in">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    {{message}}
+  </div>
+{%endfor%}
+{%endif%}
+
+<span style="float:right">
+<a href="{{ url_for('admin_home_page')}}" class="btn btn-primary">Home</a>
+
+</span>
+<hr>
+
+	<form action="{{url_for('admin_add_branch')}}" class= "form-horizontal" method="post" autocomplete="on" enctype="multipart/form-data" >
+
+	<div class="form-group">
+		<label class="control-label col-sm-3" for="locality">Locality :</label>
+      	<div class="col-sm-5"> 
+		<input type="text" class="form-control" name="locality" id="locality" placeholder="Enter Locality" required></input>
+		</div>
+	</div>
+
+
+	<div class="form-group">
+		<label class="control-label col-sm-3" for="city">City :</label>
+      	<div class="col-sm-5"> 
+		<input type="text" class="form-control" name="city" id="" placeholder="Enter City" required></input>
+		</div>
+	</div>	
+
+
+	<div class="form-group">
+		<label class="control-label col-sm-3" for="district">District:</label>
+      	<div class="col-sm-5"> 
+		<input type="text" class="form-control" name="district" id="district" placeholder="Enter district" required></input>
+		</div>
+	</div>
+
+
+	<div class="form-group">
+		<label class="control-label col-sm-3" for="state">State :</label>
+      	<div class="col-sm-5"> 
+		<input type="text" class="form-control" name="state" id="state" placeholder="Enter state" required></input>
+		</div>
+	</div>
+
+
+	<div class="form-group">
+		<label class="control-label col-sm-3" for="country">Country :</label>
+      	<div class="col-sm-5"> 
+		<input type="text" class="form-control" name="country" id="country" placeholder="Enter country" required></input>
+		</div>
+	</div>
+	
+
+
+	<div class="form-group">
+      <div class="col-sm-offset-3 col-sm-5">
+        <input type="submit" class="btn btn-success" value="Add branch"></input>
+      </div>
+    </div>
+
+	</form>
+</div>
+</body>
+</html>

@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>profile</title>
+
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+<div class="container">
+<h2><center>Profile Page</h2></center>
+<span style="float: right">
+<a href="{{url_for('logout')}}" class="btn btn-primary" >Logout</a>
+
+<a href="{{url_for('home')}}" class="btn btn-primary" >Home</a>
+</span>
+<hr>
+
+
+
+<h3>hi {{users[0][1]}} </h3>
+
+Your personal info is as follows:
+<br>
+{{users[0][1]}}
+{{users[0][2]}},
+{{users[0][3]}},
+{{users[0][5]}},
+{{users[0][6]}},
+{{users[0][7]}},
+{{users[0][8]}}
+
+<br>
+
+<h3>You have following bookings:</h3>
+<ul>
+{% for booking in bookings %}
+<li>Booking id :{{booking[0]}},<br>
+	User id: {{booking[1]}},<br>
+	Branch id : {{booking[2]}},<br>
+	Number of passengers : {{booking[3]}},<br>
+	Departure date : {{booking[4]}},<br>
+	Return date : {{booking[5]}}<br>
+	Vehicle : {{booking[6]}}<br>
+	<br>
+</li>
+{% endfor %}
+</ul>
+</div>
+</body>
+</html>

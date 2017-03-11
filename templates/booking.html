@@ -1,0 +1,107 @@
+<!doctype html>
+<html>
+<head>
+<title>Booking</title>
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<style>
+.form-group{
+    margin-bottom: 10px;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+<h3>Booking</h3>
+
+{%if(get_flashed_messages())%}
+{% for message in get_flashed_messages() %}
+	<div class="alert alert-info fade in">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    {{message}}
+  </div>
+{%endfor%}
+{%endif%}
+
+<span style="float:right">
+<a href="{{ url_for('home')}}" class="btn btn-primary">Home</a>
+
+</span>
+<hr>
+
+	<form action="{{url_for('booking')}}" class= "form-horizontal" method="post" autocomplete="on" enctype="multipart/form-data" >
+
+	
+	<div class="form-group">
+	<label class="control-label col-sm-3" for="userid">Userid :</label>
+		<div class="col-sm-5"> 
+      	<select name="userid" class="form-control" id="userid" required>  
+			<option value="{{userid}}" selected>{{userid}}</option>
+		</select>
+		</div>
+	</div>
+	<div class="form-group">
+	<label class="control-label col-sm-3" for="branch_id">Branch number :</label>
+		<div class="col-sm-5"> 
+      	<select name="branch_id" class="form-control" id="branch_id" required>  
+			<option value="{{branch_id}}" selected>{{branch_id}}</option>
+		</select>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label class="control-label col-sm-3" for="no_of_passengers">No of passengers :</label>
+      	<div class="col-sm-5"> 
+		<input type="number" class="form-control" name="no_of_passengers" id="no_of_passengers" placeholder="Enter no_of_passengers" required></input>
+		</div>
+	</div>
+
+
+	<div class="form-group">
+      <label class="control-label col-sm-3" for="vehicle">Select type of Vehicle:</label>
+      <div class="col-sm-5">
+      <select class="form-control" name="vehicle" id="vehicle" required>
+       	<option value="super_bikes">Super Bikes</option>
+       	<option value="car" selected>Car</option>	
+		<option value="bus">BUS</option>
+		<option value="train">Train</option>
+		<option value="cargo">Cargo</option>
+		<option value="private_jet">Private Jet</option>	
+		<option value="boat">Boat</option>
+		<option value="Cruise">Cruise</option>
+		<option value="Ship">Ship</option>
+		
+		</select>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label class="control-label col-sm-3" for="departure_date">Departure date :</label>
+      	<div class="col-sm-5"> 
+		<input type="date" class="form-control" name="departure_date" id="departure_date" required></input>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label class="control-label col-sm-3" for="return_date">Return date :</label>
+      	<div class="col-sm-5"> 
+		<input type="date" class="form-control" name="return_date" id="return_date" required></input>
+		</div>
+	</div>
+
+
+	<div class="form-group">
+      <div class="col-sm-offset-3 col-sm-5">
+        <button type="submit" class="btn btn-success">Book journey</button>
+      </div>
+    </div>
+
+	</form>
+</div>
+</body>
+</html>

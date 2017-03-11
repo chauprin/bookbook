@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+<head>
+<title>Login page</title>
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+</head>
+<body>
+<div class="container">
+<h2>bookbook.com</h2>
+
+<span style="float: right">
+<a href="{{url_for('signup_page')}}" class="btn btn-success" >Signup</a>
+</span>
+<h3>Login Page</h3>
+
+
+{%if(get_flashed_messages())%}
+{% for message in get_flashed_messages() %}
+	<div class="container">
+	 <div class="alert alert-danger fade in">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    {{message}}
+  </div>
+  </div>
+{%endfor%}
+{%endif%}
+
+<hr>
+<form action="{{url_for('login')}}" method="post" class= "form-horizontal" >
+	
+<div class="form-group">
+
+		<label class="control-label col-sm-2" for="email" >Email : </label>
+      	<div class="col-sm-4"> 
+		<input type="text" class="form-control" name="email" id="email" placeholder="Enter email" required></input>
+		</div>
+	</div>
+
+<div class="form-group">
+
+		<label class="control-label col-sm-2" for="password" >Password : </label>
+      	<div class="col-sm-4"> 
+		<input type="password" class="form-control" name="password" id="password" placeholder="Enter password" required></input>
+		</div>
+	</div>
+
+ <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-4">
+        <button type="submit" class="btn btn-default">Login</button>
+      </div>
+    </div>
+</form>
+<hr>
+</div>
+</body>
+</html>
